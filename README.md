@@ -58,30 +58,40 @@ It detects vehicles in surveillance video, extracts number plates using OCR, and
  
 ## Login Page
 <div align="center">
-  <img src="images/Picture1.png" alt="Login Page" width="700">
+  <img src="images/Picture1.png" alt="Login Page" width="500">
 </div>
 
 ## Register Page
 <div align="center">
-  <img src="images/Picture2.png" alt="Login Page" width="700">
+  <img src="images/Picture2.png" alt="Login Page" width="500">
+</div>
+
+## Main Page
+<div align="center">
+  <img src="images/Picture3.png" alt="Login Page" width="500">
 </div>
 
 ## Supply Chain
 <div align="center">
-  <img src="images/Picture3.png" alt="Login Page" width="700">
+  <img src="images/Picture4.png" alt="Login Page" width="500">
 </div>
+
+## Predictive Maintainance
 <div align="center">
-  <img src="images/Picture4.png" alt="Login Page" width="700">
+  <img src="images/Picture5.png" alt="Login Page" width="500">
 </div>
+
+## Inventory Management
 <div align="center">
-  <img src="images/Picture5.png" alt="Login Page" width="700">
+  <img src="images/Picture6.png" alt="Login Page" width="500">
 </div>
+
+## Route Optimization
 <div align="center">
-  <img src="images/Picture6.png" alt="Login Page" width="700">
-</div>
-<div align="center">
-  <img src="images/Picture7.png" alt="Login Page" width="700">
-</div>
+  <img src="images/Picture7.png" alt="Login Page" width="500">
+</div> 
+
+Note
 
    
 
