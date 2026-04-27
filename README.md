@@ -54,15 +54,35 @@ It detects vehicles in surveillance video, extracts number plates using OCR, and
    ```
 6. Open http://localhost:5000
 
-Screen Shots
-
+# Screen Shots
+ 
+## Login Page
 <div align="center">
   <img src="images/Picture1.png" alt="Login Page" width="700">
 </div>
 
+## Register Page
+<div align="center">
+  <img src="images/Picture2.png" alt="Login Page" width="700">
+</div>
+
+## Supply Chain
+<div align="center">
+  <img src="images/Picture3.png" alt="Login Page" width="700">
+</div>
+<div align="center">
+  <img src="images/Picture4.png" alt="Login Page" width="700">
+</div>
+<div align="center">
+  <img src="images/Picture5.png" alt="Login Page" width="700">
+</div>
+<div align="center">
+  <img src="images/Picture6.png" alt="Login Page" width="700">
+</div>
+<div align="center">
+  <img src="images/Picture7.png" alt="Login Page" width="700">
+</div>
+
    
 
-## Notes
-- The zip does **not** include the YOLO model file due to environment restrictions. Use `python download_model.py` to fetch it automatically.
-- Author: Simha6776
-- License: MIT
+
