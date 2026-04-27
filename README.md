@@ -56,6 +56,11 @@ It detects vehicles in surveillance video, extracts number plates using OCR, and
 
 Screen Shots
 
+<div align="center">
+  <img src="images/picture1.png" alt="Free Claude Code in action" width="700">
+  <p><em>Claude Code running via NVIDIA NIM, completely free</em></p>
+</div>
+
    
 
 ## Notes
