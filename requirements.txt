@@ -1,0 +1,14 @@
+flask
+flask-cors
+opencv-python
+numpy
+pillow
+ultralytics
+torch
+pytesseract
+easyocr
+sqlalchemy
+pandas
+scikit-learn
+ortools
+geopy
