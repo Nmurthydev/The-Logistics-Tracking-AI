@@ -93,6 +93,7 @@ It detects vehicles in surveillance video, extracts number plates using OCR, and
 
 # Disclaimer
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 Licensed Under MIT 
 Selling The Codes To Other People For Money Is Strictly Prohibited. (its external alert)
 
