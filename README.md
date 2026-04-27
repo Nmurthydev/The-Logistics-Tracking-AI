@@ -68,30 +68,30 @@ It detects vehicles in surveillance video, extracts number plates using OCR, and
 
 ## Main Page
 <div align="center">
-  <img src="images/Picture3.png" alt="Login Page" width="500">
+  <img src="images/Picture3.png" alt="Login Page" width="700">
 </div>
 
 ## Supply Chain
 <div align="center">
-  <img src="images/Picture4.png" alt="Login Page" width="500">
+  <img src="images/Picture4.png" alt="Login Page" width="700">
 </div>
 
 ## Predictive Maintainance
 <div align="center">
-  <img src="images/Picture5.png" alt="Login Page" width="500">
+  <img src="images/Picture5.png" alt="Login Page" width="700">
 </div>
 
 ## Inventory Management
 <div align="center">
-  <img src="images/Picture6.png" alt="Login Page" width="500">
+  <img src="images/Picture6.png" alt="Login Page" width="700">
 </div>
 
 ## Route Optimization
 <div align="center">
-  <img src="images/Picture7.png" alt="Login Page" width="500">
+  <img src="images/Picture7.png" alt="Login Page" width="700">
 </div> 
 
-Note
+
 
    
 
