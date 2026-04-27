@@ -3,6 +3,14 @@
 **Logistics-AI-Tracking** is a full-stack AI-based logistics vehicle tracking system built with Python, Flask, and YOLOv8.
 It detects vehicles in surveillance video, extracts number plates using OCR, and shows their **last known location** based on the camera that captured them.
 
+## Objectives
+ 
+- [x] Real Time Location Tracking Using CCTV cameras
+- [x] Supply Chain
+- [x] Predictive Maintainance
+- [x] Inventory Management
+- [x] Route Optimization
+
 ## Quick start (local run)
 
 1. Create & activate a virtualenv:
