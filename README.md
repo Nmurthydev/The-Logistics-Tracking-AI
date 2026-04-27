@@ -58,12 +58,12 @@ It detects vehicles in surveillance video, extracts number plates using OCR, and
  
 ## Login Page
 <div align="center">
-  <img src="images/Picture1.png" alt="Login Page" width="500">
+  <img src="images/Picture1.png" alt="Login Page" width="700">
 </div>
 
 ## Register Page
 <div align="center">
-  <img src="images/Picture2.png" alt="Login Page" width="500">
+  <img src="images/Picture2.png" alt="Login Page" width="700">
 </div>
 
 ## Main Page
