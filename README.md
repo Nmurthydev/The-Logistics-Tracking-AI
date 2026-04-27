@@ -44,7 +44,7 @@ It detects vehicles in surveillance video, extracts number plates using OCR, and
    ```
    sudo apt-get update && sudo apt-get install -y tesseract-ocr
    ```
-4. Download the YOLOv8 model (script included):
+4. Download the YOLOv8 model :
    ```
    python download_model.py
    ```
@@ -53,6 +53,10 @@ It detects vehicles in surveillance video, extracts number plates using OCR, and
    python app.py
    ```
 6. Open http://localhost:5000
+
+Screen Shots
+
+   
 
 ## Notes
 - The zip does **not** include the YOLO model file due to environment restrictions. Use `python download_model.py` to fetch it automatically.
