@@ -1,0 +1,113 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Predictive Maintenance</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="/static/style.css"> <!-- optional -->
+  <style>
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial; background:#f6f8fb; color:#111; margin:0}
+    .wrap{max-width:720px;margin:32px auto;padding:18px}
+    header{background:#0ea5e9;color:#fff;padding:18px;border-radius:10px}
+    .card{background:#fff;padding:18px;border-radius:10px;margin-top:16px;box-shadow:0 6px 18px rgba(11,22,39,0.06)}
+    label{display:block;margin-top:8px;font-weight:600}
+    input[type="number"]{width:100%;padding:10px;border-radius:6px;border:1px solid #e6e9ef;margin-top:6px}
+    button{margin-top:12px;padding:10px 14px;border-radius:8px;border:none;background:#0ea5e9;color:#fff;cursor:pointer}
+    button[disabled]{opacity:.6;cursor:not-allowed}
+    pre#out{background:#0f1724;color:#e6eef8;padding:12px;border-radius:8px;overflow:auto;margin-top:12px}
+    .row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    .note{font-size:0.9rem;color:#555;margin-top:8px}
+    footer {
+      text-align: center;
+      padding: 10px;
+      font-size: 13px;
+      background: #e3f2fd;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Predictive Maintenance — RUL Predictor</h1>
+      <div class="note">Enter equipment telemetry below and click <strong>Predict RUL</strong>.</div>
+    </header>
+
+    <div class="card">
+      <form id="predForm">
+        <div class="row">
+          <div>
+            <label for="hours_running">Hours Running</label>
+            <input id="hours_running" name="hours_running" type="number" step="any" min="0" placeholder="e.g. 1200" required>
+          </div>
+          <div>
+            <label for="miles">Miles / Distance</label>
+            <input id="miles" name="miles" type="number" step="any" min="0" placeholder="e.g. 50000" required>
+          </div>
+        </div>
+
+        <div class="row">
+          <div>
+            <label for="vibration">Vibration (RMS)</label>
+            <input id="vibration" name="vibration" type="number" step="any" min="0" placeholder="e.g. 3.5" required>
+          </div>
+          <div>
+            <label for="temp">Temperature (°C)</label>
+            <input id="temp" name="temp" type="number" step="any" min="-50" placeholder="e.g. 75" required>
+          </div>
+        </div>
+
+        <button id="predictBtn" type="submit">Predict RUL</button>
+      </form>
+
+      <pre id="out">Result will appear here...</pre>
+    </div>
+  </div>
+
+  <div class="container">
+
+  <script>
+    const form = document.getElementById('predForm');
+    const out = document.getElementById('out');
+    const btn = document.getElementById('predictBtn');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      out.textContent = 'Working…';
+      btn.disabled = true;
+
+      const data = Object.fromEntries(new FormData(form).entries());
+      // convert numeric fields
+      ['hours_running','miles','vibration','temp'].forEach(k=>{
+        if (data[k] !== undefined) data[k] = parseFloat(data[k]) || 0;
+      });
+
+      try {
+        const res = await fetch('/predict_maintenance', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify(data)
+        });
+
+        if (!res.ok) {
+          const txt = await res.text();
+          out.textContent = 'Server error: ' + (txt || res.status);
+          return;
+        }
+
+        const j = await res.json();
+        out.textContent = JSON.stringify(j, null, 2);
+      } catch (err) {
+        out.textContent = 'Network/JS error: ' + err.message;
+      } finally {
+        btn.disabled = false;
+      }
+    });
+  </script>
+  </div>
+   <footer>
+    © 2025 <strong>Narasimhamurthy H T</strong> under guidance of <strong>Dr. Vikas Sir Asst. Prof.</strong> AI Tracking System — All Rights Reserved
+  </footer>
+</body>
+</html>

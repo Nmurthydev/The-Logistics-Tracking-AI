@@ -1,0 +1,356 @@
+<!--<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Supply Chain Tracking</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f8f9fa;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #1e88e5;
+      color: white;
+      padding: 15px 30px;
+    }
+    .container {
+      padding: 20px 40px;
+    }
+    .card {
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 25px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    input, button {
+      padding: 8px 12px;
+      margin: 5px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background: #1e88e5;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #1565c0;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: center;
+    }
+    th {
+      background: #f1f1f1;
+    }
+    pre {
+      background: #f6f8fa;
+      padding: 10px;
+      border-radius: 6px;
+      overflow-x: auto;
+    }
+    footer {
+      text-align: center;
+      padding: 10px;
+      font-size: 13px;
+      background: #e3f2fd;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Supply Chain Dashboard</h1>
+  </header>
+
+  <div class="container">
+
+    //✅ Create Shipment 
+    <div class="card">
+      <h2>Create New Shipment</h2>
+      <form id="newShipForm">
+        <input name="code" placeholder="Shipment Code" required>
+        <input name="origin" placeholder="Origin" required>
+        <input name="destination" placeholder="Destination" required>
+        <input name="assigned_plate" placeholder="Vehicle Plate (e.g., KA01AB1234)">
+        <button type="submit">Create Shipment</button>
+      </form>
+      <pre id="createOut"></pre>
+    </div>
+
+    // ✅ View Shipment Status 
+    <div class="card">
+      <h2>View Shipment Status</h2>
+      <input type="number" id="shipmentId" placeholder="Enter Shipment ID">
+      <button id="checkBtn">Check Status</button>
+      <pre id="statusOutput"></pre>
+    </div>
+
+    // ✅ View All Shipments 
+    <div class="card">
+      <h2>All Shipments</h2>
+      <button id="loadAll">Load All Shipments</button>
+      <table id="shipTable">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Code</th>
+            <th>Origin</th>
+            <th>Destination</th>
+            <th>Status</th>
+            <th>Assigned Plate</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <script>
+  // ✅ Create Shipment Handler
+  function formatOutput(obj) {
+    if (!obj || typeof obj !== 'object') return obj;
+    return Object.entries(obj)
+      .map(([key, value]) => '${key} : ${value}')
+      .join('\n');
+  }
+
+  // ✅ Create Shipment Handler
+  document.getElementById('newShipForm').onsubmit = async (e) => {
+    e.preventDefault();
+    const body = Object.fromEntries(new FormData(e.target).entries());
+    const r = await fetch('/shipments', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(body)
+    });
+    const data = await r.json();
+    document.getElementById('createOut').textContent = formatOutput(data);
+
+    document.getElementById('loadAll').click();
+  };
+
+  // ✅ Check Shipment Status
+  document.getElementById('checkBtn').onclick = async () => {
+    const id = document.getElementById('shipmentId').value;
+    if (!id) return alert("Please enter a shipment ID");
+    const res = await fetch('/shipments/${id}');
+    const data = await res.json();
+    document.getElementById('statusOutput').textContent = formatOutput(data);
+  };
+
+  // ✅ Load All Shipments (NO CHANGE HERE)
+  document.getElementById('loadAll').onclick = async () => {
+    const res = await fetch('/shipments');
+    const shipments = await res.json();
+    const tbody = document.querySelector('#shipTable tbody');
+    tbody.innerHTML = '';
+    shipments.forEach(s => {
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td>${s.id}</td>
+        <td>${s.shipment_code || '-'}</td>
+        <td>${s.origin || '-'}</td>
+        <td>${s.destination || '-'}</td>
+        <td>${s.status || '-'}</td>
+        <td>${s.assigned_plate || '-'}</td>`;
+      tbody.appendChild(tr);
+    });
+  };
+</script>
+  </script>
+  <footer>
+    © 2025 <strong>Narasimhamurthy H T</strong> under guidance of <strong>Dr. Vikas Sir Asst. Prof.</strong> AI Tracking System — All Rights Reserved
+  </footer>
+</body>
+</html>-->
+
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Supply Chain Tracking</title>
+  <link rel="stylesheet" href="/static/style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f8f9fa;
+      margin: 0;
+    }
+    header {
+      background: #1e88e5;
+      color: white;
+      padding: 15px 30px;
+    }
+    .container {
+      padding: 20px 40px;
+    }
+    .card {
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 25px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    input, button {
+      padding: 8px 12px;
+      margin: 5px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background: #1e88e5;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: center;
+    }
+    th {
+      background: #f1f1f1;
+    }
+    pre {
+      background: #f6f8fa;
+      padding: 10px;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+
+<body>
+<header>
+  <h1>Supply Chain Dashboard</h1>
+</header>
+
+<div class="container">
+
+  <!-- Create Shipment -->
+  <div class="card">
+    <h2>Create New Shipment</h2>
+    <form id="newShipForm">
+      <input name="code" placeholder="Shipment Code" required>
+      <input name="origin" placeholder="Origin" required>
+      <input name="destination" placeholder="Destination" required>
+      <input name="assigned_plate" placeholder="Vehicle Plate">
+      <button type="submit">Create Shipment</button>
+    </form>
+    <pre id="createOut"></pre>
+  </div>
+
+  <!-- View Shipment Status -->
+  <div class="card">
+    <h2>View Shipment Status</h2>
+    <p id="statusBadge"></p>
+    <input id="shipmentId" placeholder="Enter Shipment ID">
+    <button id="checkBtn">Check Status</button>
+    <pre id="statusOutput"></pre>
+  </div>
+
+  <!-- View All Shipments -->
+  <div class="card">
+    <h2>All Shipments</h2>
+    <button id="loadAll">Load All Shipments</button>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Code</th>
+          <th>Origin</th>
+          <th>Destination</th>
+          <th>Status</th>
+          <th>Plate</th>
+        </tr>
+      </thead>
+      <tbody id="shipTable"></tbody>
+    </table>
+  </div>
+
+</div>
+
+<script>
+  function formatOutput(obj) {
+  let out = '';
+  for (const key in obj) {
+    out += key + ' : ' + obj[key] + '\n';
+  }
+  return out.trim();
+}
+
+  // Create shipment
+  document.getElementById('newShipForm').onsubmit = async (e) => {
+    e.preventDefault();
+    const body = Object.fromEntries(new FormData(e.target).entries());
+    const r = await fetch('/shipments', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(body)
+    });
+    const data = await r.json();
+    document.getElementById('createOut').textContent = formatOutput(data);
+    document.getElementById('loadAll').click();
+  };
+
+  document.getElementById('checkBtn').onclick = async () => {
+  const id = document.getElementById('shipmentId').value;
+  if (!id) return alert("Please enter a shipment ID");
+
+  const res = await fetch(`/shipments/${id}`);
+  const data = await res.json();
+
+  // Update status badge above
+  document.getElementById('statusBadge').textContent = 
+    data.status.charAt(0).toUpperCase() + data.status.slice(1);
+
+  // Display key-value pairs without curly braces
+  const output = Object.entries(data)
+    .map(([k, v]) => `${k.replace(/_/g, ' ')}: ${v}`)
+    .join('\n');
+
+  document.getElementById('statusOutput').textContent = output;
+};
+
+  // Load all shipments
+  document.getElementById('loadAll').onclick = async () => {
+    const res = await fetch('/shipments');
+    const list = await res.json();
+    const tbody = document.getElementById('shipTable');
+    tbody.innerHTML = '';
+
+    list.forEach(s => {
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td>${s.id}</td>
+        <td>${s.shipment_code || '-'}</td>
+        <td>${s.origin || '-'}</td>
+        <td>${s.destination || '-'}</td>
+        <td>${s.status || '-'}</td>
+        <td>${s.assigned_plate || '-'}</td>
+      `;
+      tbody.appendChild(tr);
+    });
+  };
+</script>
+
+</body>
+</html>
