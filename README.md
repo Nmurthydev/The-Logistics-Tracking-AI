@@ -96,6 +96,10 @@ Licensed under [GNU AGPL 2.0.](https://github.com/EvamariaTG/evamaria/blob/maste
 Selling The Codes To Other People For Money Is *Strictly Prohibited*.(its external alert)
 
 
+# **Star this Repo if you Liked it ⭐⭐⭐**
+
+
+
 
 
 
