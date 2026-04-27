@@ -22,9 +22,8 @@ It detects vehicles in surveillance video, extracts number plates using OCR, and
 - [x] Independent Transpotations
 - [x] Reduce Manual Work
 - [x] Cost Effective
-- [x] Route Optimization
 - [x] Inventory Status
-- [x] Predict URL of Vehicle
+- [x] Predict RUL of Vehicle
 
       
 
