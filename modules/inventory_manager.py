@@ -1,3 +1,5 @@
+#Coded by @nmurthydev 
+
 # inventory_manager.py
 # modules/inventory_manager.py
 import sqlite3
