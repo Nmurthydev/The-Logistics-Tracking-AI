@@ -1,3 +1,5 @@
+#Coded by @nmurthydev 
+
  # sort.py - Pure Python SORT tracker (Simple Online Realtime Tracking)
 #import numpy as np
 #from collections import deque
