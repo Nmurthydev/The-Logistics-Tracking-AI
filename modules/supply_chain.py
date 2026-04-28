@@ -1,3 +1,5 @@
+#Coded by @nmurthydev 
+
 # modules/supply_chain.py
 # supply_chain.py - placeholder functional code
 # helpers for supply chain logic (simple placeholder)
