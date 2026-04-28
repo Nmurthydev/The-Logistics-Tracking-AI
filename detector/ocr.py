@@ -1,3 +1,4 @@
+#Coded by @nmurthydev 
 # detector/ocr.py
 import pytesseract
 import cv2
